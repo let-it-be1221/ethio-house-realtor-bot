@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/api/index.py" },
+    { "src": "/api/rotate", "dest": "/api/index.py" },
+    { "src": "/api/scrape", "dest": "/api/index.py" },
+    { "src": "/api/status", "dest": "/api/index.py" },
+    { "src": "/api/init-gist", "dest": "/api/index.py" },
+    { "src": "/api/reset-daily", "dest": "/api/index.py" }
+  ],
+  "crons": [
+    {
+      "path": "/api/rotate",
+      "schedule": "0 7,10,13,16,19 * * *"
+    }
+  ]
+}
